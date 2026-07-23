@@ -3,5 +3,12 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "cp .env.example .env && pnpm run build",
   "outputDirectory": "./dist",
-  "nodeVersion": "24.5.0"
+  "nodeVersion": "24.5.0",
+  "redirects": [
+    {
+      "source": "$wwwhost",
+      "destination": "$host",
+      "statusCode": 301
+    }
+  ]
 }
