@@ -195,7 +195,9 @@ const jumpTo = (url) => {
 
       .logo {
         transform: translateY(-8%);
-        font-family: "Pacifico-Regular";
+        font-family: var(--font-sans);
+        font-weight: 700;
+        letter-spacing: 0.04em;
         padding-left: 22px;
         width: 100%;
         height: 260px;
@@ -238,7 +240,8 @@ const jumpTo = (url) => {
 
         .num {
           font-size: 1rem;
-          font-family: "Pacifico-Regular";
+          font-family: var(--font-sans);
+          font-weight: 600;
         }
 
         .el-popper {
@@ -361,7 +364,9 @@ const jumpTo = (url) => {
 
       .logo {
         transform: translateY(-8%);
-        font-family: "Pacifico-Regular";
+        font-family: var(--font-sans);
+        font-weight: 700;
+        letter-spacing: 0.04em;
         padding-left: 6px;
         width: 72%;
         height: auto;
@@ -404,7 +409,8 @@ const jumpTo = (url) => {
 
         .num {
           font-size: 1rem;
-          font-family: "Pacifico-Regular";
+          font-family: var(--font-sans);
+          font-weight: 600;
         }
 
         .github {

@@ -131,7 +131,9 @@ watch(
       width: 100%;
       padding-left: 22px;
       transform: translateY(-8px);
-      font-family: "Pacifico-Regular";
+      font-family: var(--font-sans);
+      font-weight: 700;
+      letter-spacing: 0.04em;
 
       .bg {
         font-size: 5rem;
@@ -187,7 +189,8 @@ watch(
 
         p {
           &:nth-of-type(1) {
-            font-family: "Pacifico-Regular";
+            font-family: var(--font-sans);
+            font-weight: 600;
           }
         }
       }

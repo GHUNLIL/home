@@ -677,7 +677,7 @@ defineExpose({ playToggle, changeVolume, changeSong, toggleList });
 .aplayer {
   width: 80%;
   border-radius: 6px;
-  font-family: "MiSans VF", sans-serif !important;
+  font-family: var(--font-sans) !important;
 
   :deep(.aplayer-body) {
     background-color: transparent;

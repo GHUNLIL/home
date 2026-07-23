@@ -1,11 +1,5 @@
 [
   {
-    "name": "Github",
-    "icon": "/images/icon/github.png",
-    "tip": "查看我的 GitHub",
-    "url": "https://github.com/GHUNLIL"
-  },
-  {
     "name": "Telegram",
     "icon": "/images/icon/telegram.png",
     "tip": "Telegram: @unlilrus",

@@ -158,7 +158,8 @@ onBeforeUnmount(() => {
           margin-top: 10px;
           font-size: 3.25rem;
           letter-spacing: 2px;
-          font-family: "UnidreamLED";
+          font-family: var(--font-mono);
+          font-variant-numeric: tabular-nums;
         }
 
         @media (min-width: 1201px) and (max-width: 1280px) {

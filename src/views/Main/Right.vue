@@ -38,7 +38,9 @@ const siteUrl = computed(() => {
   margin-left: 0.75rem;
   .logo {
     width: 100%;
-    font-family: "Pacifico-Regular";
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: 0.04em;
     color: var(--background-color);
     font-size: 2.25rem;
     position: fixed;

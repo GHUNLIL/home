@@ -107,7 +107,7 @@ export function initLantern() {
     }
 
     .j-china-lantern .lantern__circle .lantern__text {
-      font-family: "华文行楷", "Microsoft YaHei", sans-serif;
+      font-family: var(--font-sans);
       font-size: 24.3px;
       color: #dc8f03;
       font-weight: 700;

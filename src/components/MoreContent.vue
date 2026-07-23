@@ -26,7 +26,7 @@ const store = mainStore();
   flex: 1;
 
   .greeting {
-    font-family: MiSans VF;
+    font-family: var(--font-sans);
     font-weight: 520;
     font-size: 1.05rem;
     width: 100%;
@@ -37,4 +37,3 @@ const store = mainStore();
 
 }
 </style>
-

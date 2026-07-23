@@ -1,12 +1,12 @@
 <template>
-  <div v-if="siteLinks[0]" class="links">
+  <div class="links">
     <div class="line">
       <Icon size="20" class="iconl">
         <Link />
       </Icon>
       <span class="title text-truncate-ellipsis" v-if="store.mobileOpenState"
-        @click="store.setOpenState = !store.setOpenState">开源项目</span>
-      <span class="title" v-else>开源项目</span>
+        @click="store.setOpenState = !store.setOpenState">子站点</span>
+      <span class="title" v-else>子站点</span>
     </div>
     <!-- 网站列表 -->
     <Swiper v-if="siteLinks[0]" :modules="[Pagination, Mousewheel]" :slides-per-view="1" :space-between="40"
@@ -29,6 +29,7 @@
       </SwiperSlide>
       <div class="swiper-pagination" />
     </Swiper>
+    <div v-else class="empty cards">暂无子站点</div>
   </div>
 </template>
 
@@ -139,6 +140,17 @@ const jumpLink = (data: SiteLink) => {
         }
       }
     }
+  }
+
+  .empty {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(245, 245, 245, 0.68);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    animation: fade 0.5s;
   }
 
   .link-all {

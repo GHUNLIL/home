@@ -3,27 +3,8 @@
     <Transition name="fade" mode="out-in">
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
         <span>
-          <span :class="ShowStartYear ? 'c-hidden' : 'o-hidden'">Copyright&nbsp;</span>
-          &copy;
-          <span v-if="ShowStartYear" class="site-start">
-            {{ startYear }}
-            -
-          </span>
-          {{ fullYear }}
+          Copyright&nbsp;&copy;&nbsp;{{ fullYear }}&nbsp;
           <a :href="siteUrl">{{ siteAuthor }}</a>
-        </span>
-        <!-- 以下信息请不要修改哦 -->
-        <span class="o-hidden">
-          &amp;&nbsp;Made&nbsp;by
-          <a :href="config.github" target="_blank">
-            {{ config.author }}
-          </a>
-        </span>
-        <span class="o-hidden">
-          &amp;&nbsp;Update&nbsp;by
-          <a :href="config.efug" target="_blank">
-            {{ config.efua }}
-          </a>
         </span>
         <!-- 站点备案 -->
         <span>
@@ -124,14 +105,6 @@ const audio = ref(null);
 const icon = ref(null);
 
 // 加载配置数据
-// const siteStartDate = ref(envConfig.VITE_SITE_START);
-const startYear = ref<number | null>(
-  envConfig.VITE_SITE_START?.length >= 4 ?
-    parseInt(envConfig.VITE_SITE_START.substring(0, 4)) : null
-);
-const ShowStartYear = computed(() => {
-  return startYear.value !== null && startYear.value < fullYear;
-});
 const siteIcp = ref(envConfig.VITE_SITE_ICP);
 const siteMps = ref(envConfig.VITE_SITE_MPS);
 const siteMICP = ref(envConfig.VITE_SITE_MICP);
@@ -261,7 +234,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
   transform: translateY(1px);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: MiSans VF;
+  font-family: var(--font-sans);
   font-weight: 520;
   font-size: 1.05rem;
   transition:
@@ -467,7 +440,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
   text-shadow: 0 0 6px rgba(0, 191, 255, 0.8),
     0px 0px 2px rgba(176, 224, 230, 0.8),
     0px 0px 2px rgba(230, 230, 250, 0.8);
-  font-family: MiSans VF;
+  font-family: var(--font-sans);
   font-weight: 520;
   font-size: 1.05rem;
   overflow: hidden;
@@ -489,7 +462,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
   text-shadow: 0 0 6px var(--footer-dwrc-shadow-first-color),
     0 0 2px rgba(255, 165, 0, 1),
     0 0 2px rgba(255, 179, 71, 1);
-  font-family: MiSans VF;
+  font-family: var(--font-sans);
   font-weight: 520;
   font-size: 1.05rem;
   transition:

@@ -11,6 +11,13 @@ GitHub：https://github.com/imsyy/home
 
 /*全局样式*/
 
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+}
+
 html,
 body {
   width: 100%;
@@ -20,8 +27,8 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: "MiSans VF", sans-serif;
-  font-weight: 330;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 0.98rem;
 }
 
@@ -44,25 +51,6 @@ p {
 a:hover {
   color: rgb(57, 159, 255);
   text-decoration: underline;
-}
-
-// 字体文件
-@font-face {
-  font-family: "Pacifico-Regular";
-  font-display: swap;
-  src: url("/font/Pacifico-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "UnidreamLED";
-  font-display: swap;
-  src: url("/font/UnidreamLED.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'MiSans-Regular';
-  font-display: swap;
-  src: url('/font/MiSans-Regular.otf') format('opentype');
 }
 
 // 基础样式
@@ -108,7 +96,7 @@ a:hover {
       background-color: var(--el-progress-bar-out-color);
       border-radius: 6px;
       text-align: center;
-      font-family: "UnidreamLED";
+      font-family: var(--font-mono);
       span {
         color: var(--el-progress-bar-span-color);
         font-size: 0.9rem;
@@ -221,4 +209,3 @@ scrollbar-thumb {
   border-radius: 10px;
   background-color: #eeeeee;
 }
-

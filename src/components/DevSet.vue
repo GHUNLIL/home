@@ -346,7 +346,7 @@ const handleSetWallpaper = () => {
 
                     .upver {
                         font-size: 0.75rem;
-                        font-family: MiSans VF;
+                        font-family: var(--font-sans);
                         color: var(--text-color);
                     }
                 }
