@@ -33,7 +33,7 @@ const openMusicShow = ref(false);
 // 一言数据
 const hitokotoData = reactive({
   text: "这里应该显示一句话",
-  from: "無名",
+  from: "UNLIL",
 });
 
 // 获取一言数据
@@ -51,7 +51,7 @@ const getHitokotoData = async () => {
       }),
     });
     hitokotoData.text = "这里应该显示一句话";
-    hitokotoData.from = "無名";
+    hitokotoData.from = "UNLIL";
     if (store.webSpeech) {
       stopSpeech();
       const voice = envConfig.VITE_TTS_Voice;

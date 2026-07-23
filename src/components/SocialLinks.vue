@@ -3,7 +3,7 @@
   <div class="social">
     <div class="link">
       <a v-for="item in socialLinks" :key="item.name" :href="item.url" target="_blank"
-        @mouseenter="socialTip = item.tip" @mouseleave="socialTip = '通过这里联系我吧'">
+        @mouseenter="socialTip = item.tip" @mouseleave="socialTip = '与我联系'">
         <img class="icon" :src="item.icon" height="24" />
       </a>
     </div>
@@ -18,12 +18,12 @@ import { mainStore } from "@/store";
 
 const store = mainStore();
 // 社交链接提示
-const socialTip = ref("通过这里联系我吧");
+const socialTip = ref("与我联系");
 
 const togglesocial = () => {
   ElMessage({
     dangerouslyUseHTMLString: true,
-    message: `哦？来扩列嘛？~`,
+    message: `很高兴与你相遇`,
   });
   if (store.webSpeech) {
     stopSpeech();

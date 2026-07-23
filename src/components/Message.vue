@@ -3,7 +3,7 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-      <img class="logo-img" :src="siteLogo" alt="logo" />
+      <img class="logo-img" :src="siteLogo" alt="UNLIL" />
       <div :class="{ name: true, 'text-truncate-ellipsis': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
@@ -43,14 +43,14 @@ const siteLogo = envConfig.VITE_SITE_MAIN_LOGO;
 const siteUrl = computed(() => {
   let mns: string | null = null;
   if (store.msgNameShow) {
-    mns = envConfig.VITE_SITE_MAIN_NAME  ||  envConfig.VITE_SITE_URL || "imsyy.top";
+    mns = envConfig.VITE_SITE_MAIN_NAME  ||  envConfig.VITE_SITE_URL || "UNLIL";
     // 这里并没有处理显示自定义内容后的分段点，因为这个点看着也不错，有种写字时封笔的感觉，就不处理啦~
     // 才不是懒的！（x）
   } else {
-    mns = envConfig.VITE_SITE_URL || "imsyy.top";
+    mns = envConfig.VITE_SITE_URL || "unlil.com";
   };
   const url = mns;
-  if (!url) return "imsyy.top".split(".");
+  if (!url) return "UNLIL".split(".");
   let urlFormat = url;
   // 判断协议前缀
   urlFormat = urlFormat.replace(/^(https?:\/\/)/, "");
@@ -120,8 +120,11 @@ watch(
     color: rgba(245, 245, 245, 1);
 
     .logo-img {
-      border-radius: 50%;
-      width: 120px;
+      border-radius: 10px;
+      width: 160px;
+      height: 72px;
+      object-fit: cover;
+      object-position: center;
     }
 
     .name {
@@ -148,7 +151,8 @@ watch(
 
     @media (max-width: 768px) {
       .logo-img {
-        width: 100px;
+        width: 132px;
+        height: 60px;
       }
 
       .name {
