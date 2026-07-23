@@ -112,7 +112,7 @@ const siteAuthor = ref(envConfig.VITE_SITE_AUTHOR);
 
 const siteUrl = computed(() => {
   const url = envConfig.VITE_SITE_URL;
-  if (!url) return "https://www.unlil.com/";
+  if (!url) return "https://unlil.com/";
   let fullUrl = url;
   if (!/^https?:\/\//i.test(url)) {
     fullUrl = "https://" + url;
@@ -122,7 +122,7 @@ const siteUrl = computed(() => {
     const urlObj = new URL(fullUrl);
     return urlObj.toString();
   } catch (e) {
-    return "https://www.unlil.com/";
+    return "https://unlil.com/";
   };
 });
 
