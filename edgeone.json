@@ -1,0 +1,7 @@
+{
+  "name": "unlil-home",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "cp .env.example .env && pnpm run build",
+  "outputDirectory": "./dist",
+  "nodeVersion": "24.5.0"
+}

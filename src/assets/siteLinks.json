@@ -1,37 +1,32 @@
 [
   {
-    "icon": "Blog",
-    "name": "博客",
-    "link": "https://blog.imsyy.top/"
-  },
-  {
-    "icon": "Cloud",
-    "name": "网盘",
-    "link": "https://pan.imsyy.top/"
-  },
-  {
-    "icon": "CompactDisc",
-    "name": "音乐",
-    "link": "https://music.imsyy.top/"
+    "icon": "LaptopCode",
+    "name": "GitHub",
+    "link": "https://github.com/GHUNLIL"
   },
   {
     "icon": "Compass",
-    "name": "起始页",
-    "link": "https://nav.imsyy.top/"
-  },
-  {
-    "icon": "Book",
-    "name": "网址集",
-    "link": "https://web.imsyy.top/"
+    "name": "端口转发",
+    "link": "https://github.com/GHUNLIL/nft-forward"
   },
   {
     "icon": "Fire",
-    "name": "今日热榜",
-    "link": "https://hot.imsyy.top/"
+    "name": "BBR 优化",
+    "link": "https://github.com/GHUNLIL/network-bbr-optimizer"
   },
   {
-    "icon": "LaptopCode",
-    "name": "站点监测",
-    "link": "https://status.imsyy.top/"
+    "icon": "Cloud",
+    "name": "区域白名单",
+    "link": "https://github.com/GHUNLIL/china-region-whitelist"
+  },
+  {
+    "icon": "CompactDisc",
+    "name": "Mimic 安装",
+    "link": "https://github.com/GHUNLIL/linux-mimic-installer"
+  },
+  {
+    "icon": "Book",
+    "name": "bpftune",
+    "link": "https://github.com/GHUNLIL/bpftune-tui-manager"
   }
 ]
