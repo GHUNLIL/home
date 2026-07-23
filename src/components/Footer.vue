@@ -486,6 +486,14 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
   word-break: keep-all;
   white-space: nowrap;
   color: var(--footer-font-color);
+  border-top: 1px solid var(--bento-border);
+  background: var(--bento-surface);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  a {
+    color: var(--bento-text);
+  }
 
   .power {
     animation: fade 0.3s;
@@ -576,9 +584,10 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
   }
 
   &.blur {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background: var(--footer-background-color);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    background: var(--bento-surface);
+    color: var(--bento-text);
     font-size: 1rem;
   }
 

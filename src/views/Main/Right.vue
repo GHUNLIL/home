@@ -3,7 +3,7 @@
     <!-- 移动端 Logo -->
     <div class="logo text-truncate-ellipsis" @click="store.mobileFuncState = !store.mobileFuncState">
       <span class="bg">{{ siteUrl[0] }}</span>
-      <span class="sm">.{{ siteUrl[1] }}</span>
+      <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
     </div>
     <!-- 功能区 -->
     <Func />
@@ -33,9 +33,8 @@ const siteUrl = computed(() => {
 
 <style lang="scss" scoped>
 .right {
-  // flex: 1 0 0%;
-  width: 50%;
-  margin-left: 0.75rem;
+  width: 100%;
+  margin: 0;
   .logo {
     width: 100%;
     font-family: var(--font-sans);

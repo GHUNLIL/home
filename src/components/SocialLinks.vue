@@ -1,6 +1,6 @@
 <template>
   <!-- 社交链接 -->
-  <div class="social">
+  <div class="social cards">
     <div class="link">
       <a v-for="item in socialLinks" :key="item.name" :href="item.url" target="_blank"
         @mouseenter="socialTip = item.tip" @mouseleave="socialTip = '与我联系'">
@@ -36,21 +36,15 @@ const togglesocial = () => {
 
 <style lang="scss" scoped>
 .social {
-  margin-top: 1rem;
+  margin-top: var(--bento-gap);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 460px;
+  max-width: none;
   width: 100%;
-  height: 42px;
-  background-color: transparent;
-  border-radius: 6px;
-  -webkit-backdrop-filter: blur(0);
-  backdrop-filter: blur(0);
+  height: 76px;
+  padding: 0 18px;
   animation: fade 0.5s;
-  transition:
-    background-color 0.3s,
-    backdrop-filter 0.3s;
 
   @media (max-width: 840px) {
     max-width: 100%;
@@ -76,7 +70,9 @@ const togglesocial = () => {
       display: inherit;
 
       .icon {
-        margin: 0 12px;
+        width: 26px;
+        height: 26px;
+        margin: 0 14px;
         transition: transform 0.3s;
 
         &:hover {
@@ -91,21 +87,17 @@ const togglesocial = () => {
   }
 
   .tip {
-    color: var(--social-font-color);
-    display: none;
-    margin-right: 12px;
+    color: var(--bento-muted);
+    display: block;
+    margin-right: 4px;
     animation: fade 0.5s;
   }
 
   @media (min-width: 768px) {
     &:hover {
-      background-color: var(--social-background-color);
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-
       .tip {
         display: block;
-        color: var(--social-font-color);
+        color: var(--bento-text);
       }
     }
   }

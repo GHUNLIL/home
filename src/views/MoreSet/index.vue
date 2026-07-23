@@ -9,7 +9,7 @@
       <el-col class="left">
         <div class="logo text-truncate-ellipsis">
           <span class="bg">{{ siteUrl[0] }}</span>
-          <span class="sm">.{{ siteUrl[1] }}</span>
+          <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
         </div>
         <!-- 移动端设置菜单 -->
         <div class="title">
@@ -36,7 +36,7 @@
       <el-col :span="12" class="left">
         <div class="logo text-truncate-ellipsis">
           <span class="bg">{{ siteUrl[0] }}</span>
-          <span class="sm">.{{ siteUrl[1] }}</span>
+          <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
         </div>
         <div class="version">
           <el-tooltip content="Version" placement="top" effect="color" :show-arrow="false">

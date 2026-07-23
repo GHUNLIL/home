@@ -2,11 +2,11 @@
   <!-- 基本信息 -->
   <div class="message">
     <!-- Logo -->
-    <div class="logo">
+    <div class="logo cards">
       <img class="logo-img" :src="siteLogo" alt="UNLIL" />
       <div :class="{ name: true, 'text-truncate-ellipsis': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
-        <span class="sm">.{{ siteUrl[1] }}</span>
+        <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
       </div>
     </div>
     <!-- 简介 -->
@@ -111,39 +111,46 @@ watch(
 
 <style lang="scss" scoped>
 .message {
+  display: grid;
+  gap: var(--bento-gap);
+
   .logo {
     display: flex;
     flex-direction: row;
     align-items: center;
     animation: fade 0.5s;
-    max-width: 460px;
-    color: rgba(245, 245, 245, 1);
+    width: 100%;
+    max-width: none;
+    height: 132px;
+    padding: 18px;
+    color: var(--bento-text);
 
     .logo-img {
-      border-radius: 10px;
-      width: 160px;
-      height: 72px;
+      border: 1px solid var(--bento-border);
+      border-radius: 0;
+      width: 152px;
+      height: 94px;
       object-fit: cover;
       object-position: center;
     }
 
     .name {
       width: 100%;
-      padding-left: 22px;
-      transform: translateY(-8px);
+      padding-left: 20px;
+      transform: none;
       font-family: var(--font-sans);
       font-weight: 700;
       letter-spacing: 0.04em;
 
       .bg {
-        font-size: 5rem;
-        color: rgba(245, 245, 245, 1);
+        font-size: clamp(3.25rem, 5vw, 5rem);
+        color: var(--bento-text);
       }
 
       .sm {
         margin-left: 6px;
         font-size: 2rem;
-        color: rgba(255, 240, 245, 1);
+        color: var(--bento-muted);
 
         @media (min-width: 721px) and (max-width: 789px) {
           display: none;
@@ -153,15 +160,15 @@ watch(
 
     @media (max-width: 768px) {
       .logo-img {
-        width: 132px;
-        height: 60px;
+        width: 124px;
+        height: 82px;
       }
 
       .name {
-        height: 128px;
+        height: auto;
 
         .bg {
-          font-size: 4.5rem;
+          font-size: 3.8rem;
         }
       }
     }
@@ -172,9 +179,10 @@ watch(
   }
 
   .description {
-    padding: 1rem;
-    margin-top: 3.5rem;
-    max-width: 460px;
+    height: 165px;
+    padding: 1.25rem;
+    margin-top: 0;
+    max-width: none;
     animation: fade 0.5s;
 
     .content {
@@ -201,6 +209,7 @@ watch(
     }
 
     @media (max-width: 720px) {
+      height: 160px;
       max-width: 100%;
       pointer-events: none;
     }

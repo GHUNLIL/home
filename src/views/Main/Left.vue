@@ -14,10 +14,9 @@ const store = mainStore();
 
 <style lang="scss" scoped>
 .left {
-  // flex: 1 0 0%;
-  width: 50%;
-  margin-right: 10px;
-  transform: translateY(20px);
+  width: 100%;
+  margin: 0;
+  transform: none;
   &.hidden {
     display: none;
   }

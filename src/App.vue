@@ -225,14 +225,15 @@ onBeforeUnmount(() => {
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    padding: 0 0.5vw;
+    padding: 70px 0.75rem 64px;
 
     .all {
       width: 100%;
       height: 100%;
-      padding: 0 0.75rem;
-      display: flex;
-      flex-direction: row;
+      padding: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--bento-gap);
       justify-content: center;
       align-items: center;
       overflow: hidden;
@@ -253,7 +254,15 @@ onBeforeUnmount(() => {
 
 
     @media (max-width: 1200px) {
-      padding: 0;
+      padding: 70px 0.75rem 64px;
+    }
+
+    @media (max-width: 720px) {
+      padding: 82px 14px 62px;
+
+      .all {
+        display: block;
+      }
     }
   }
 
@@ -266,10 +275,11 @@ onBeforeUnmount(() => {
     left: calc(50% - 28px);
     width: 56px;
     height: 34px;
-    background: var(--card-background-color);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 6px;
+    border: 1px solid var(--bento-border);
+    background: var(--bento-surface);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-radius: var(--bento-radius);
     transition: transform 0.3s;
     animation: fade 0.5s;
 

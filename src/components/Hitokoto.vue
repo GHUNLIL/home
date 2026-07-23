@@ -91,7 +91,7 @@ onMounted(() => {
     justify-content: center;
     background: #00000026;
     padding: 4px 0;
-    border-radius: 8px 8px 0 0;
+    border-radius: 0;
 
     .i-icon {
       width: 18px;

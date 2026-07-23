@@ -479,8 +479,10 @@ watch(() => store.autoBGSwitchInterval, () => {
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.5) 100%),
-      radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.3) 166%);
+    background-image:
+      linear-gradient(135deg, rgba(18, 8, 13, 0.26), rgba(5, 15, 28, 0.44)),
+      radial-gradient(rgba(0, 0, 0, 0.04) 0, rgba(0, 0, 0, 0.62) 100%),
+      radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.38) 166%);
 
     transition: 1.5s;
 

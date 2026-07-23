@@ -1,6 +1,6 @@
 <template>
   <div class="links">
-    <div class="line">
+    <div class="line cards">
       <Icon size="20" class="iconl">
         <Link />
       </Icon>
@@ -86,7 +86,9 @@ const jumpLink = (data: SiteLink) => {
 <style lang="scss" scoped>
 .links {
   .line {
-    margin: 2rem 0.25rem 1rem;
+    height: 48px;
+    margin: var(--bento-gap) 0 8px;
+    padding: 0 14px;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
@@ -94,14 +96,14 @@ const jumpLink = (data: SiteLink) => {
     color: rgba(245, 245, 245, 1);
 
     .iconl {
-      color: rgba(245, 245, 245, 1);
+      color: var(--bento-text);
     }
 
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
-      text-shadow: 0 0 5px rgba(15, 15, 15, 0.6);
-      color: rgba(245, 245, 245, 1);
+      text-shadow: none;
+      color: var(--bento-text);
     }
   }
 
@@ -143,11 +145,11 @@ const jumpLink = (data: SiteLink) => {
   }
 
   .empty {
-    height: 100px;
+    height: 145px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(245, 245, 245, 0.68);
+    color: var(--bento-muted);
     font-size: 1rem;
     letter-spacing: 0.04em;
     animation: fade 0.5s;

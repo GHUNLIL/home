@@ -82,7 +82,7 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .function {
-  height: 165px;
+  height: 184px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
     }
 
     .right {
-      padding: 20px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -156,9 +156,10 @@ onBeforeUnmount(() => {
 
         .text {
           margin-top: 10px;
-          font-size: 3.25rem;
-          letter-spacing: 2px;
-          font-family: var(--font-mono);
+          font-size: clamp(2.5rem, 4vw, 3.25rem);
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          font-family: var(--font-sans);
           font-variant-numeric: tabular-nums;
         }
 
