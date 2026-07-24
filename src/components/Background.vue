@@ -1,8 +1,8 @@
 <template>
   <div :class="store.backgroundShow ? 'cover show' : 'cover'">
     <!-- 当前壁纸层 -->
-    <img v-show="store.imgLoadStatus" :src="currentBgUrl" :class="['bg', 'current', { 'blur-out': isTransitioning, 'no-transition': skipTransition }]"
-      alt="cover" @load="imgLoadComplete" @error.once="imgLoadError" @animationend="imgAnimationEnd" />
+    <img v-show="currentBgUrl" :src="currentBgUrl" :class="['bg', 'current', { 'blur-out': isTransitioning, 'no-transition': skipTransition }]"
+      alt="cover" @load="imgLoadComplete" @error.once="imgLoadError" />
     <!-- 新壁纸层 -->
     <img v-if="isTransitioning" :src="nextBgUrl" :class="['bg', 'next', { 'blur-in': isBlurringIn }]" alt="cover" />
     <div :class="store.backgroundShow ? 'gray o-hidden' : 'gray'" />
@@ -31,9 +31,8 @@ const nextBgUrl = ref(null);
 const isTransitioning = ref(false);
 const isBlurringIn = ref(false);
 const skipTransition = ref(false);
-const imgTimeout = ref(null);
 const autoBGSwitchTimer = ref(null); // 定时切换定时器
-const emit = defineEmits(["loadComplete", "imageLoaded"]);
+const emit = defineEmits(["imageLoaded"]);
 const key = envConfig.VITE_SFILE_SKEY;
 const isLoading = ref(false);
 
@@ -227,19 +226,7 @@ const performTransition = async (newUrl) => {
 // 图片加载完成
 const imgLoadComplete = (event) => {
   emit("imageLoaded", event.target);
-  imgTimeout.value = setTimeout(
-    () => {
-      store.setImgLoadStatus(true);
-    },
-    Math.floor(Math.random() * (600 - 300 + 1)) + 300,
-  );
-};
-
-// 图片动画完成
-const imgAnimationEnd = () => {
-  console.log("壁纸加载且动画完成");
-  // 加载完成事件
-  emit("loadComplete");
+  store.setImgLoadStatus(true);
 };
 
 // 图片显示失败
@@ -380,9 +367,6 @@ onMounted(async () => {
 });
 
 onBeforeUnmount(() => {
-  if (imgTimeout.value) {
-    clearTimeout(imgTimeout.value);
-  };
   if (autoBGSwitchTimer.value) {
     clearInterval(autoBGSwitchTimer.value);
   };

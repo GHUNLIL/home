@@ -1,11 +1,9 @@
 <template>
-  <!-- 加载 -->
-  <Loading />
   <!-- 壁纸 -->
-  <Background @loadComplete="loadComplete" @imageLoaded="onImageLoaded" />
+  <Background @imageLoaded="onImageLoaded" />
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
-    <main id="main" v-if="store.imgLoadStatus">
+    <main id="main">
       <div class="page-container" v-show="!store.backgroundShow">
         <section class="all" v-show="!store.setOpenState">
           <MainLeft />
@@ -30,11 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { helloInit, checkDays } from "@/utils/getTime.js";
+import { checkDays } from "@/utils/getTime.js";
 import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import { Icon } from "@vicons/utils";
-import Loading from "@/components/Loading.vue";
 import MainLeft from "@/views/Main/Left.vue";
 import MainRight from "@/views/Main/Right.vue";
 import Background from "@/components/Background.vue";
@@ -52,16 +49,6 @@ const timeThemeInterval = ref<any>(null);
 // 页面宽度
 const getWidth = () => {
   store.setInnerWidth(window.innerWidth);
-};
-
-// 加载完成事件
-const loadComplete = () => {
-  nextTick(() => {
-    // 欢迎提示
-    helloInit(store);
-    // 默哀模式
-    checkDays();
-  });
 };
 
 // 监听宽度变化
@@ -135,6 +122,7 @@ watch(
 );
 
 onMounted(() => {
+  checkDays();
   darkThemeMq.addEventListener("change", handleThemeChange);
 
   // 自定义鼠标
@@ -218,8 +206,7 @@ onBeforeUnmount(() => {
   height: 100%;
   // transform: scale(1.2);
   transition: transform 0.3s;
-  animation: fade-blur-main-in 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.5s;
+  animation: fade 0.25s ease-out both;
 
   .page-container {
     width: 100%;
