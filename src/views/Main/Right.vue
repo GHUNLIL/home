@@ -5,8 +5,6 @@
       <span class="bg">{{ siteUrl[0] }}</span>
       <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
     </div>
-    <!-- 功能区 -->
-    <Func />
     <!-- 网站链接 -->
     <Link />
   </div>
@@ -14,7 +12,6 @@
 
 <script setup lang="ts">
 import { mainStore } from "@/store";
-import Func from "@/views/Func/index.vue";
 import Link from "@/components/Links.vue";
 const store = mainStore();
 

@@ -1,37 +1,25 @@
 <template>
   <!-- 基本信息 -->
-  <div class="message">
-    <!-- Logo -->
-    <div class="logo cards">
+  <div class="message cards">
+    <div class="identity">
       <img class="logo-img" :src="siteLogo" alt="UNLIL" />
       <div :class="{ name: true, 'text-truncate-ellipsis': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
       </div>
     </div>
-    <!-- 简介 -->
-    <div class="description cards" @click="changeBox">
-      <div class="content">
-        <Icon size="16">
-          <QuoteLeft />
-        </Icon>
-        <Transition name="fade" mode="out-in">
-          <div :key="descriptionText.hello + descriptionText.text" class="text">
-            <p>{{ descriptionText.hello }}</p>
-            <p>{{ descriptionText.text }}</p>
-          </div>
-        </Transition>
-        <Icon size="16">
-          <QuoteRight />
-        </Icon>
-      </div>
+    <div class="description" @click="changeBox">
+      <Transition name="fade" mode="out-in">
+        <div :key="descriptionText.hello + descriptionText.text" class="text">
+          <p class="hello">{{ descriptionText.hello }}</p>
+          <p class="intro">{{ descriptionText.text }}</p>
+        </div>
+      </Transition>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Icon } from "@vicons/utils";
-import { QuoteLeft, QuoteRight } from "@vicons/fa";
 import { Error } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
@@ -111,25 +99,22 @@ watch(
 
 <style lang="scss" scoped>
 .message {
-  display: grid;
-  gap: var(--bento-gap);
+  width: 100%;
+  min-height: 254px;
+  padding: 22px;
+  animation: fade 0.5s;
 
-  .logo {
+  .identity {
     display: flex;
     flex-direction: row;
     align-items: center;
-    animation: fade 0.5s;
-    width: 100%;
-    max-width: none;
-    height: 132px;
-    padding: 18px;
     color: var(--bento-text);
 
     .logo-img {
       border: 1px solid var(--bento-border);
       border-radius: 0;
-      width: 152px;
-      height: 94px;
+      width: 142px;
+      height: 88px;
       object-fit: cover;
       object-position: center;
     }
@@ -143,13 +128,13 @@ watch(
       letter-spacing: 0.04em;
 
       .bg {
-        font-size: clamp(3.25rem, 5vw, 5rem);
+        font-size: clamp(3rem, 4.5vw, 4.5rem);
         color: var(--bento-text);
       }
 
       .sm {
         margin-left: 6px;
-        font-size: 2rem;
+        font-size: 1.75rem;
         color: var(--bento-muted);
 
         @media (min-width: 721px) and (max-width: 789px) {
@@ -160,8 +145,8 @@ watch(
 
     @media (max-width: 768px) {
       .logo-img {
-        width: 124px;
-        height: 82px;
+        width: 116px;
+        height: 76px;
       }
 
       .name {
@@ -179,64 +164,41 @@ watch(
   }
 
   .description {
-    height: 165px;
-    padding: 1.25rem;
-    margin-top: 0;
-    max-width: none;
-    animation: fade 0.5s;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bento-border);
+    cursor: pointer;
 
-    .content {
+    .text {
+      min-height: 86px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s;
 
-      .text {
-        margin: 0.75rem 1rem;
-        line-height: 2rem;
-        margin-right: auto;
-        transition: opacity 0.2s;
-
-        p {
-          &:nth-of-type(1) {
-            font-family: var(--font-sans);
-            font-weight: 600;
-          }
-        }
+      .hello {
+        font-size: 1.2rem;
+        font-family: var(--font-sans);
+        font-weight: 650;
+        letter-spacing: 0.01em;
       }
 
-      .xicon:nth-of-type(2) {
-        align-self: flex-end;
+      .intro {
+        color: var(--bento-muted);
+        font-size: 1rem;
+        line-height: 1.7;
       }
     }
 
     @media (max-width: 720px) {
-      height: 160px;
-      max-width: 100%;
       pointer-events: none;
     }
   }
 
-  // @media (max-width: 390px) {
-  //   .logo {
-  //     flex-direction: column;
-  //     .logo-img {
-  //       display: none;
-  //     }
-  //     .name {
-  //       margin-left: 0;
-  //       height: auto;
-  //       transform: none;
-  //       text-align: center;
-  //       .bg {
-  //         font-size: 3.5rem;
-  //       }
-  //       .sm {
-  //         font-size: 1.4rem;
-  //       }
-  //     }
-  //   }
-  //   .description {
-  //     margin-top: 2.5rem;
-  //   }
-  // }
+  @media (max-width: 720px) {
+    min-height: 238px;
+    padding: 18px;
+  }
 }
 </style>

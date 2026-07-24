@@ -1,6 +1,6 @@
 <template>
-  <div class="links">
-    <div class="line cards">
+  <div class="links cards">
+    <div class="line">
       <Icon size="20" class="iconl">
         <Link />
       </Icon>
@@ -29,7 +29,7 @@
       </SwiperSlide>
       <div class="swiper-pagination" />
     </Swiper>
-    <div v-else class="empty cards">暂无子站点</div>
+    <div v-else class="empty">暂无子站点</div>
   </div>
 </template>
 
@@ -85,15 +85,17 @@ const jumpLink = (data: SiteLink) => {
 
 <style lang="scss" scoped>
 .links {
+  min-height: 328px;
+
   .line {
-    height: 48px;
-    margin: var(--bento-gap) 0 8px;
-    padding: 0 14px;
+    height: 62px;
+    padding: 0 20px;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
     animation: fade 0.5s;
     color: rgba(245, 245, 245, 1);
+    border-bottom: 1px solid var(--bento-border);
 
     .iconl {
       color: var(--bento-text);
@@ -108,9 +110,8 @@ const jumpLink = (data: SiteLink) => {
   }
 
   .swiper {
-    left: -10px;
-    width: calc(100% + 20px);
-    padding: 5px 10px 0;
+    width: 100%;
+    padding: 20px;
     z-index: 0;
 
     .swiper-slide {
@@ -145,7 +146,7 @@ const jumpLink = (data: SiteLink) => {
   }
 
   .empty {
-    height: 145px;
+    height: 265px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,6 +154,14 @@ const jumpLink = (data: SiteLink) => {
     font-size: 1rem;
     letter-spacing: 0.04em;
     animation: fade 0.5s;
+  }
+
+  @media (max-width: 720px) {
+    min-height: 250px;
+
+    .empty {
+      height: 187px;
+    }
   }
 
   .link-all {

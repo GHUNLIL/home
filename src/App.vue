@@ -226,13 +226,17 @@ onBeforeUnmount(() => {
     height: 100%;
     margin: 0 auto;
     padding: 70px 0.75rem 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .all {
       width: 100%;
-      height: 100%;
+      max-width: 1120px;
+      height: auto;
       padding: 0;
       display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: var(--bento-gap);
       justify-content: center;
       align-items: center;
@@ -262,6 +266,7 @@ onBeforeUnmount(() => {
 
       .all {
         display: block;
+        max-width: 560px;
       }
     }
   }

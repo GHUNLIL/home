@@ -42,8 +42,8 @@ const togglesocial = () => {
   justify-content: space-between;
   max-width: none;
   width: 100%;
-  height: 76px;
-  padding: 0 18px;
+  height: 62px;
+  padding: 0 16px;
   animation: fade 0.5s;
 
   @media (max-width: 840px) {
@@ -70,9 +70,9 @@ const togglesocial = () => {
       display: inherit;
 
       .icon {
-        width: 26px;
-        height: 26px;
-        margin: 0 14px;
+        width: 24px;
+        height: 24px;
+        margin: 0 12px;
         transition: transform 0.3s;
 
         &:hover {
