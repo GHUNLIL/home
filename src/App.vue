@@ -1,10 +1,8 @@
 <template>
-  <!-- 壁纸 -->
-  <Background @imageLoaded="onImageLoaded" />
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
     <main id="main">
-      <div class="page-container" v-show="!store.backgroundShow">
+      <div class="page-container">
         <section class="all" v-show="!store.setOpenState">
           <MainLeft />
           <MainRight v-show="!store.boxOpenState" />
@@ -15,13 +13,12 @@
         </section>
       </div>
       <!-- 移动端菜单按钮 -->
-      <Icon class="menu" size="24" v-show="!store.backgroundShow"
-        @click="store.mobileOpenState = !store.mobileOpenState">
+      <Icon class="menu" size="24" @click="store.mobileOpenState = !store.mobileOpenState">
         <component :is="store.mobileOpenState ? CloseSmall : HamburgerButton" />
       </Icon>
       <!-- 页脚 -->
       <Transition name="fade" mode="out-in">
-        <Footer class="f-ter" v-show="!store.backgroundShow && !store.setOpenState" />
+        <Footer class="f-ter" v-show="!store.setOpenState" />
       </Transition>
     </main>
   </Transition>
@@ -34,17 +31,15 @@ import { mainStore } from "@/store";
 import { Icon } from "@vicons/utils";
 import MainLeft from "@/views/Main/Left.vue";
 import MainRight from "@/views/Main/Right.vue";
-import Background from "@/components/Background.vue";
 import Footer from "@/components/Footer.vue";
 import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
 import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
-import { getColor } from "@/utils/getColor";
 
 const store = mainStore();
-const timeThemeInterval = ref<any>(null);
+document.documentElement.dataset.theme = "dark";
 
 // 页面宽度
 const getWidth = () => {
@@ -62,68 +57,8 @@ watch(
   },
 );
 
-// 监听主题变化
-const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-
-const handleThemeChange = (e?: any) => {
-  if (store.theme === "system") {
-    const isDark = e ? e.matches : darkThemeMq.matches;
-    document.documentElement.dataset.theme = isDark ? "dark" : "light";
-  }
-};
-
-const onImageLoaded = (img: HTMLImageElement) => {
-  if (store.theme === 'bg') {
-    getColor(img)
-      .then((theme) => {
-        document.documentElement.dataset.theme = theme;
-      })
-      .catch((err) => {
-        console.error(err);
-        ElMessage.error("背景主题切换失败，已回退到跟随系统");
-        store.theme = "system";
-      });
-  };
-};
-
-watch(
-  () => store.theme,
-  (theme) => {
-    if (timeThemeInterval.value) {
-      clearInterval(timeThemeInterval.value);
-      timeThemeInterval.value = null;
-    };
-    if (theme === "light") {
-      document.documentElement.dataset.theme = "light";
-    } else if (theme === "dark") {
-      document.documentElement.dataset.theme = "dark";
-    } else if (theme === "system") {
-      handleThemeChange();
-    } else if (theme === "time") {
-      const setTimeTheme = () => {
-        const now = new Date();
-        const hour = now.getHours();
-        if (hour >= 19 || hour < 6) {
-          document.documentElement.dataset.theme = "dark";
-        } else {
-          document.documentElement.dataset.theme = "light";
-        };
-      };
-      setTimeTheme();
-      timeThemeInterval.value = setInterval(setTimeTheme, 60000);
-    } else if (theme === "bg") {
-      const bgImg = document.querySelector('.bg') as HTMLImageElement;
-      if (bgImg && bgImg.complete) {
-        onImageLoaded(bgImg);
-      };
-    };
-  },
-  { immediate: true }
-);
-
 onMounted(() => {
   checkDays();
-  darkThemeMq.addEventListener("change", handleThemeChange);
 
   // 自定义鼠标
   cursorInit();
@@ -143,30 +78,6 @@ onMounted(() => {
     };
     return false;
   };
-
-  // 鼠标中键事件
-  window.addEventListener("mousedown", (event) => {
-    if (event.button == 1) {
-      store.backgroundShow = !store.backgroundShow;
-      ElMessage({
-        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
-        grouping: true,
-      });
-      if (store.webSpeech) {
-        if (store.backgroundShow) {
-          stopSpeech();
-          const voice = envConfig.VITE_TTS_Voice;
-          const vstyle = envConfig.VITE_TTS_Style;
-          SpeechLocal("壁纸预览已启用.mp3");
-        } else {
-          stopSpeech();
-          const voice = envConfig.VITE_TTS_Voice;
-          const vstyle = envConfig.VITE_TTS_Style;
-          SpeechLocal("壁纸预览已退出.mp3");
-        };
-      };
-    }
-  });
 
   // 监听当前页面宽度
   getWidth();
@@ -190,10 +101,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
-  darkThemeMq.removeEventListener("change", handleThemeChange);
-  if (timeThemeInterval.value) {
-    clearInterval(timeThemeInterval.value);
-  }
 });
 </script>
 

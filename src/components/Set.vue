@@ -1,28 +1,6 @@
 <template>
   <div class="setting">
     <el-collapse class="collapse" v-model="activeName" accordion>
-      <el-collapse-item title="个性壁纸" name="1">
-        <div class="bg-set">
-          <el-radio-group v-model="coverType" text-color="#ffffff" @change="radioChange">
-            <el-radio :value="0" size="large" border>默认壁纸</el-radio>
-            <el-radio :value="1" size="large" border>每日一图</el-radio>
-            <el-radio :value="2" size="large" border>随机风景</el-radio>
-            <el-radio :value="3" size="large" border>随机动漫</el-radio>
-          </el-radio-group>
-        </div>
-      </el-collapse-item>
-      <el-collapse-item title="主题设置" name="2">
-        <div class="item">
-          <span class="text">主题模式</span><br><br>
-          <el-radio-group v-model="theme" size="small" text-color="#FFFFFF">
-            <el-radio value="system" border>跟随系统</el-radio>
-            <el-radio value="time" border>跟随时间</el-radio>
-            <el-radio value="bg" border>跟随背景</el-radio>
-            <el-radio value="light" border>浅色模式</el-radio>
-            <el-radio value="dark" border>深色模式</el-radio>
-          </el-radio-group>
-        </div>
-      </el-collapse-item>
       <el-collapse-item title="个性化调整" name="3">
         <div class="item">
           <span class="text">建站日期显示</span>
@@ -31,10 +9,6 @@
         <div class="item">
           <span class="text">音乐点击是否打开面板</span>
           <el-switch v-model="musicClick" inline-prompt :active-icon="CheckSmall" :inactive-icon="CloseSmall" />
-        </div>
-        <div class="item">
-          <span class="text">显示季节特效</span>
-          <el-switch v-model="seasonalEffects" inline-prompt :active-icon="CheckSmall" :inactive-icon="CloseSmall" />
         </div>
         <div class="item">
           <span class="text">底栏背景模糊</span>
@@ -112,24 +86,17 @@
       <el-collapse-item title="其他设置" name="7">
         <div class="text">暂时没有其它啦qwq</div>
       </el-collapse-item>
-      <el-collapse-item v-if="setV" title="开发设置" name="8">
-        <DevSet />
-      </el-collapse-item>
     </el-collapse>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CheckSmall, CloseSmall, SuccessPicture } from "@icon-park/vue-next";
-import DevSet from "@/components/DevSet.vue";
+import { CheckSmall, CloseSmall } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
-import config from "@/../package.json";
-import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
 
 const store = mainStore();
 const {
-  coverType,
   siteStartShow,
   musicClick,
   playerLrcShow,
@@ -147,31 +114,10 @@ const {
   playerDWRCPilfer,
   playerRMMetadata,
   footerProgressBar,
-  seasonalEffects,
-  setV,
-  theme,
-  msgNameShow,
 } = storeToRefs(store);
 
 // 默认选中项
 const activeName = ref("0");
-
-// 壁纸切换
-const radioChange = () => {
-  ElMessage({
-    message: "壁纸更换成功",
-    icon: h(SuccessPicture, {
-      theme: "filled",
-      fill: "var(--el-message-icon-color)",
-    }),
-  });
-  if (store.webSpeech) {
-    stopSpeech();
-    const voice = envConfig.VITE_TTS_Voice;
-    const vstyle = envConfig.VITE_TTS_Style;
-    SpeechLocal("更换壁纸成功.mp3");
-  };
-};
 </script>
 
 <style lang="scss" scoped>

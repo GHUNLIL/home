@@ -12,15 +12,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Background: typeof import('./components/Background.vue')['default']
     DevSet: typeof import('./components/DevSet.vue')['default']
-    ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElCollapse: typeof import('element-plus/es')['ElCollapse']
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
-    ElForm: typeof import('element-plus/es')['ElForm']
-    ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElInput: typeof import('element-plus/es')['ElInput']
     ElProgress: typeof import('element-plus/es')['ElProgress']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
@@ -44,15 +39,10 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
-  const Background: typeof import('./components/Background.vue')['default']
   const DevSet: typeof import('./components/DevSet.vue')['default']
-  const ElButton: typeof import('element-plus/es')['ElButton']
   const ElCol: typeof import('element-plus/es')['ElCol']
   const ElCollapse: typeof import('element-plus/es')['ElCollapse']
   const ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
-  const ElForm: typeof import('element-plus/es')['ElForm']
-  const ElFormItem: typeof import('element-plus/es')['ElFormItem']
-  const ElInput: typeof import('element-plus/es')['ElInput']
   const ElProgress: typeof import('element-plus/es')['ElProgress']
   const ElRadio: typeof import('element-plus/es')['ElRadio']
   const ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
