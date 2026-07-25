@@ -37,6 +37,7 @@ import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
 import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
+import { initFirefly, closeFirefly } from "@/utils/season/firefly";
 
 const store = mainStore();
 document.documentElement.dataset.theme = "dark";
@@ -59,6 +60,7 @@ watch(
 
 onMounted(() => {
   checkDays();
+  initFirefly();
 
   // 自定义鼠标
   cursorInit();
@@ -101,6 +103,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
+  closeFirefly();
 });
 </script>
 
