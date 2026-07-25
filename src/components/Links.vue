@@ -85,7 +85,8 @@ const jumpLink = (data: SiteLink) => {
 
 <style lang="scss" scoped>
 .links {
-  min-height: 328px;
+  height: 100%;
+  min-height: 0;
 
   .line {
     height: 62px;
@@ -146,7 +147,7 @@ const jumpLink = (data: SiteLink) => {
   }
 
   .empty {
-    height: 265px;
+    height: calc(100% - 62px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,6 +158,7 @@ const jumpLink = (data: SiteLink) => {
   }
 
   @media (max-width: 720px) {
+    height: 250px;
     min-height: 250px;
 
     .empty {

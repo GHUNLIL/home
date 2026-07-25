@@ -100,8 +100,12 @@ watch(
 <style lang="scss" scoped>
 .message {
   width: 100%;
-  min-height: 254px;
-  padding: 22px;
+  height: 100%;
+  min-height: 0;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   animation: fade 0.5s;
 
   .identity {
@@ -164,13 +168,13 @@ watch(
   }
 
   .description {
-    margin-top: 22px;
-    padding-top: 20px;
+    margin-top: 16px;
+    padding-top: 16px;
     border-top: 1px solid var(--bento-border);
     cursor: pointer;
 
     .text {
-      min-height: 86px;
+      min-height: 72px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -197,6 +201,7 @@ watch(
   }
 
   @media (max-width: 720px) {
+    height: auto;
     min-height: 238px;
     padding: 18px;
   }

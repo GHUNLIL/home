@@ -36,15 +36,20 @@ const togglesocial = () => {
 
 <style lang="scss" scoped>
 .social {
-  margin-top: var(--bento-gap);
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: none;
   width: 100%;
-  height: 62px;
+  height: 100%;
   padding: 0 16px;
   animation: fade 0.5s;
+
+  @media (max-width: 720px) {
+    height: 62px;
+    margin-top: var(--bento-gap);
+  }
 
   @media (max-width: 840px) {
     max-width: 100%;

@@ -134,9 +134,10 @@ onBeforeUnmount(() => {
       padding: 0;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-auto-rows: 328px;
       gap: var(--bento-gap);
       justify-content: center;
-      align-items: center;
+      align-items: stretch;
       overflow: hidden;
     }
 
@@ -164,6 +165,7 @@ onBeforeUnmount(() => {
       .all {
         display: block;
         max-width: 560px;
+        grid-auto-rows: initial;
       }
     }
   }

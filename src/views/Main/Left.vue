@@ -15,14 +15,22 @@ const store = mainStore();
 <style lang="scss" scoped>
 .left {
   width: 100%;
+  height: 100%;
   margin: 0;
   transform: none;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 62px;
+  gap: var(--bento-gap);
+
   &.hidden {
     display: none;
   }
+
   @media (max-width: 720px) {
     margin-right: 0;
     width: 100%;
+    height: auto;
+    display: block;
   }
 }
 </style>

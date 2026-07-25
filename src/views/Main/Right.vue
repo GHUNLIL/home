@@ -31,6 +31,7 @@ const siteUrl = computed(() => {
 <style lang="scss" scoped>
 .right {
   width: 100%;
+  height: 100%;
   margin: 0;
   .logo {
     width: 100%;
@@ -62,6 +63,7 @@ const siteUrl = computed(() => {
   @media (max-width: 720px) {
     margin-left: 0;
     width: 100%;
+    height: auto;
     &.is-hidden {
       display: none;
     }
