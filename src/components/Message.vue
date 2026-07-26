@@ -3,10 +3,10 @@
   <div class="message cards">
     <div class="identity">
       <img class="logo-img" :src="siteLogo" alt="UNLIL" />
-      <div :class="{ name: true, 'text-truncate-ellipsis': true, long: siteUrl[0].length >= 6 }">
+      <h1 :class="{ name: true, 'text-truncate-ellipsis': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
-      </div>
+      </h1>
     </div>
     <div class="description" @click="changeBox">
       <Transition name="fade" mode="out-in">
