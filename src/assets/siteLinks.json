@@ -3,5 +3,30 @@
     "icon": "LaptopCode",
     "name": "DEV",
     "link": "https://dev.unlil.com"
+  },
+  {
+    "icon": "Blog",
+    "name": "内容站",
+    "link": "https://wordpress.unlil.com"
+  },
+  {
+    "icon": "Compass",
+    "name": "项目",
+    "link": "https://dev.unlil.com/projects"
+  },
+  {
+    "icon": "Cloud",
+    "name": "VPS 工具",
+    "link": "https://dev.unlil.com/vps-remaining-value/"
+  },
+  {
+    "icon": "Book",
+    "name": "GitHub",
+    "link": "https://github.com/GHUNLIL"
+  },
+  {
+    "icon": "Fire",
+    "name": "合作",
+    "link": "mailto:info@unlil.com"
   }
 ]

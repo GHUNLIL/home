@@ -3,8 +3,9 @@
   <div class="social cards">
     <div class="link">
       <a v-for="item in socialLinks" :key="item.name" :href="item.url" target="_blank"
+        rel="noopener noreferrer" :aria-label="item.tip"
         @mouseenter="socialTip = item.tip" @mouseleave="socialTip = '与我联系'">
-        <img class="icon" :src="item.icon" height="24" />
+        <img class="icon" :src="item.icon" :alt="item.name" height="24" />
       </a>
     </div>
     <span class="tip" @dblclick="togglesocial">{{ socialTip }}</span>

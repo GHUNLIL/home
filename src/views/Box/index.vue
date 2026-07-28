@@ -21,8 +21,6 @@
       />
     </transition>
     <div class="content">
-      <!-- 可在此处自定义任意内容 -->
-      <TimeCapsule />
       <MoreContent />
     </div>
   </div>
@@ -31,7 +29,6 @@
 <script setup lang="ts">
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import TimeCapsule from "@/components/TimeCapsule.vue";
 import MoreContent from "@/components/MoreContent.vue";
 
 const store = mainStore();
@@ -40,10 +37,10 @@ const closeShow = ref(false);
 
 <style lang="scss" scoped>
 .box {
-  flex: 1 0 0%;
-  margin-left: 0.75rem;
-  height: 80%;
-  max-width: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin-left: 0;
   position: relative;
   animation: fade 0.5s;
   overflow: hidden;
@@ -80,7 +77,7 @@ const closeShow = ref(false);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding: 30px;
+    padding: 20px;
     width: 100%;
     height: 100%;
   }

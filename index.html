@@ -2,7 +2,6 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="64x64" href="/images/icon/unlil-favicon.png" />
@@ -30,7 +29,7 @@
         "@id": "https://unlil.com/#profile",
         "url": "https://unlil.com/",
         "name": "UNLIL · 个人主页",
-        "description": "UNLIL 的个人主页",
+        "description": "UNLIL 的个人主页：服务器与网络技术、开源项目、中俄跨境、TikTok 与俄语内容。",
         "inLanguage": ["zh-CN", "en"],
         "mainEntity": {
           "@type": "Person",
@@ -38,7 +37,12 @@
           "name": "UNLIL",
           "url": "https://unlil.com/",
           "image": "https://unlil.com/images/icon/unlil-logo.jpg",
-          "sameAs": ["https://t.me/unlilrus"],
+          "sameAs": [
+            "https://github.com/GHUNLIL",
+            "https://t.me/unlilrus",
+            "https://dev.unlil.com/",
+            "https://wordpress.unlil.com/"
+          ],
           "email": "mailto:info@unlil.com"
         }
       }
@@ -52,8 +56,8 @@
         padding: 2rem;
         color: #faf7f1;
         background: #000;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-          "Microsoft YaHei", sans-serif;
+        font-family: "MiSans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "PingFang SC", "Microsoft YaHei", sans-serif;
         text-align: center;
       }
       #app > .seo-fallback h1 {
@@ -67,10 +71,12 @@
       #app > .seo-fallback a {
         color: #faf7f1;
       }
+      @font-face {
+        font-family: "MiSans";
+        src: url("/font/MiSans-Regular.otf") format("opentype");
+        font-display: swap;
+      }
     </style>
-    <!-- HarmonyOS Sans and MiSans -->
-    <link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" />
-    <link rel="stylesheet" href="https://cdn-font.hyperos.mi.com/font/css?family=MiSans_VF:VF:Chinese_Simplify,Latin&display=swap" />
     <!-- IE Out -->
     <script>
       if (/*@cc_on!@*/ false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -86,9 +92,13 @@
       <main class="seo-fallback">
         <h1>UNLIL</h1>
         <p>Hello, I'm UNLIL.</p>
-        <p>欢迎来到我的个人主页。</p>
-        <nav aria-label="联系方式">
-          <a href="https://t.me/unlilrus">Telegram</a>
+        <p>服务器与网络技术、开源项目、中俄跨境与内容创作。</p>
+        <nav aria-label="站点入口">
+          <a href="https://dev.unlil.com/">DEV</a>
+          ·
+          <a href="https://wordpress.unlil.com/">内容站</a>
+          ·
+          <a href="https://github.com/GHUNLIL">GitHub</a>
           ·
           <a href="mailto:info@unlil.com">Email</a>
         </nav>
@@ -98,7 +108,7 @@
     <noscript>
       <div style="padding: 2rem; text-align: center">
         <h1>UNLIL</h1>
-        <p>Hello, I'm UNLIL. 欢迎来到我的个人主页。</p>
+        <p>Hello, I'm UNLIL. 服务器与网络技术、开源项目、中俄跨境与内容创作。</p>
         <p>此页面的互动功能需要 JavaScript。</p>
       </div>
     </noscript>

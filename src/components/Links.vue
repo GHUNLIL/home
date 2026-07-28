@@ -18,12 +18,19 @@
       <SwiperSlide v-for="(site, siteIndex) in siteLinksList" :key="'site-' + siteIndex">
         <el-row class="link-all" :gutter="20">
           <el-col v-for="(item, index) in site" :span="8" :key="'item-' + index">
-            <div class="item cards" :style="index < 3 ? 'margin-bottom: 20px' : null" @click="jumpLink(item)">
+            <a
+              class="item cards"
+              :style="index < 3 ? 'margin-bottom: 20px' : undefined"
+              :href="item.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="`打开${item.name}`"
+            >
               <Icon size="26">
                 <component :is="siteIcon[item.icon]" />
               </Icon>
               <span class="name text-truncate-ellipsis">{{ item.name }}</span>
-            </div>
+            </a>
           </el-col>
         </el-row>
       </SwiperSlide>
@@ -44,7 +51,6 @@ import siteLinks from "@/assets/siteLinks.json";
 
 const store = mainStore();
 const siteLinksData = siteLinks as SiteLink[];
-declare const $openList: () => void;
 
 interface SiteLink {
   icon: keyof typeof siteIcon;
@@ -72,15 +78,6 @@ const siteIcon = {
   LaptopCode,
 };
 
-// 链接跳转
-const jumpLink = (data: SiteLink) => {
-  if (data.name === "音乐" && store.musicClick && store.musicIsOk) {
-    store.musicBoxOpenState = !store.musicBoxOpenState;
-    return;
-  } else {
-    window.open(data.link, "_blank");
-  };
-};
 </script>
 
 <style lang="scss" scoped>
@@ -169,8 +166,10 @@ const jumpLink = (data: SiteLink) => {
   .link-all {
     height: 220px;
 
-    .item {
-      height: 100px;
+      .item {
+        color: inherit;
+        text-decoration: none;
+        height: 100px;
       width: 100%;
       display: flex;
       align-items: center;

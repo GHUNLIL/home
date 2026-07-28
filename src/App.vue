@@ -36,7 +36,6 @@ import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
-import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
 import { initFirefly, closeFirefly } from "@/utils/season/firefly";
 
 const store = mainStore();
@@ -64,22 +63,6 @@ onMounted(() => {
 
   // 自定义鼠标
   cursorInit();
-
-  // 屏蔽右键
-  document.oncontextmenu = () => {
-    ElMessage({
-      message: "为了浏览体验，本站禁用右键",
-      grouping: true,
-      duration: 2000,
-    });
-    if (store.webSpeech) {
-      stopSpeech();
-      const voice = envConfig.VITE_TTS_Voice;
-      const vstyle = envConfig.VITE_TTS_Style;
-      SpeechLocal("鼠标右键.mp3");
-    };
-    return false;
-  };
 
   // 监听当前页面宽度
   getWidth();

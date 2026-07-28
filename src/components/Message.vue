@@ -8,14 +8,14 @@
         <span v-if="siteUrl[1]" class="sm">.{{ siteUrl[1] }}</span>
       </h1>
     </div>
-    <div class="description" @click="changeBox">
+    <button type="button" class="description" aria-label="查看业务与合作" @click="changeBox">
       <Transition name="fade" mode="out-in">
         <div :key="descriptionText.hello + descriptionText.text" class="text">
           <p class="hello">{{ descriptionText.hello }}</p>
           <p class="intro">{{ descriptionText.text }}</p>
         </div>
       </Transition>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -168,6 +168,12 @@ watch(
   }
 
   .description {
+    width: 100%;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    font: inherit;
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid var(--bento-border);
