@@ -6,12 +6,6 @@
     "url": "https://t.me/unlilrus"
   },
   {
-    "name": "GitHub",
-    "icon": "/images/icon/github.png",
-    "tip": "GitHub: @GHUNLIL",
-    "url": "https://github.com/GHUNLIL"
-  },
-  {
     "name": "Email",
     "icon": "/images/icon/email.png",
     "tip": "发送邮件",

@@ -16,10 +16,9 @@
       </li>
     </ul>
 
-    <nav class="actions" aria-label="业务与合作入口">
+    <div class="actions">
       <a href="mailto:info@unlil.com">邮件联系</a>
-      <a href="https://dev.unlil.com/projects" target="_blank" rel="noopener noreferrer">查看项目</a>
-    </nav>
+    </div>
   </section>
 </template>
 
