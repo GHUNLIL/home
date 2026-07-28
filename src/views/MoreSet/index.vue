@@ -21,8 +21,6 @@
         </div>
         <div class="version">
           <div class="num" @dblclick="toggleVer">v&nbsp;{{ config.version }}</div>
-          <github-one class="github" theme="outline" size="24" @click="jumpTo(config.github)" />
-          <file-editing-one class="github" theme="outline" size="24" @click="jumpTo(config.efug)" />
         </div>
       </el-col>
     </el-row>
@@ -41,12 +39,6 @@
         <div class="version">
           <el-tooltip content="Version" placement="top" effect="color" :show-arrow="false">
             <div class="num" @dblclick="toggleVer">v&nbsp;{{ config.version }}</div>
-          </el-tooltip>
-          <el-tooltip content="Github 源代码仓库" placement="top" effect="color" :show-arrow="false">
-            <github-one class="github" theme="outline" size="24" @click="jumpTo(config.github)" />
-          </el-tooltip>
-          <el-tooltip content="扩展功能更新仓库" placement="top" effect="color" :show-arrow="false">
-            <file-editing-one class="github" theme="outline" size="24" @click="jumpTo(config.efug)" />
           </el-tooltip>
         </div>
         <!-- <el-card class="update">
@@ -82,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { CloseOne, SettingTwo, GithubOne, AddOne, Bug, FileEditingOne } from "@icon-park/vue-next";
+import { CloseOne, SettingTwo, AddOne, Bug } from "@icon-park/vue-next";
 import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
 import { mainStore } from "@/store";
 import Set from "@/components/Set.vue";
@@ -146,10 +138,6 @@ const toggleVer = () => {
   };
 };
 
-// 跳转源代码仓库
-const jumpTo = (url) => {
-  window.open(url);
-};
 </script>
 
 <style lang="scss" scoped>

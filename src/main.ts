@@ -112,7 +112,6 @@ if (!import.meta.env.VITE_CONFIG_TURN || import.meta.env.VITE_CONFIG_TURN != "tr
   另外，也请求各位不要随意移除原作者信息，谢谢！ */
   if (config.author != 'imsyy' || config.efua != 'NanoRocky') {
     console.warn(`Warning: Somethings error ... , The original author information for this project has been modified. If this was not done by you, please delete the file and download the project code package again. If this was done by you, please do not modify or remove the original author information. Thank you! Of course, you can also choose to ignore this message.`);
-    console.log('Original repository link: https://github.com/NanoRocky/home/blob/EFU/');
     mountApp();
   } else {
     mountApp();

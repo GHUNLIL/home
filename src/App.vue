@@ -80,7 +80,7 @@ onMounted(() => {
   | | | |\\/| |\\___ \\  \\   /    \\   /
  _| |_| |  | |____) |  | |      | |
 |_____|_|  |_|_____/   |_|      |_|`;
-  const content = `\n\n版本: ${config.version}\n原作: ${config.github}\n维护分支: ${config.efug}\n本页面: https://github.com/GHUNLIL/home`;
+  const content = `\n\n版本: ${config.version}\n网站: https://unlil.com/`;
   console.info(`%c${title1} %c${title2} %c${content}`, styleTitle1, styleTitle2, styleContent);
 });
 
