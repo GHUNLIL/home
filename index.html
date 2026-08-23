@@ -20,29 +20,50 @@
     <meta property="og:description" content="%VITE_SITE_DES%" />
     <meta property="og:url" content="https://unlil.com/" />
     <meta property="og:image" content="https://unlil.com/images/icon/unlil-logo.jpg" />
+    <meta property="og:image:alt" content="UNLIL 标志" />
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="%VITE_SITE_NAME%" />
+    <meta name="twitter:description" content="%VITE_SITE_DES%" />
+    <meta name="twitter:image" content="https://unlil.com/images/icon/unlil-logo.jpg" />
     <title>%VITE_SITE_NAME%</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "@id": "https://unlil.com/#profile",
-        "url": "https://unlil.com/",
-        "name": "UNLIL · 个人主页",
-        "description": "UNLIL 的个人主页：服务器与网络技术、开源项目、中俄跨境、TikTok 与俄语内容。",
-        "inLanguage": ["zh-CN", "en"],
-        "mainEntity": {
-          "@type": "Person",
-          "@id": "https://unlil.com/#unlil",
-          "name": "UNLIL",
-          "url": "https://unlil.com/",
-          "image": "https://unlil.com/images/icon/unlil-logo.jpg",
-          "sameAs": [
-            "https://t.me/unlilrus",
-            "https://dev.unlil.com/"
-          ],
-          "email": "mailto:info@unlil.com"
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://unlil.com/#website",
+            "url": "https://unlil.com/",
+            "name": "UNLIL",
+            "alternateName": ["unlil.com", "UNLIL 个人主页"],
+            "inLanguage": ["zh-CN", "en"]
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://unlil.com/#profile",
+            "url": "https://unlil.com/",
+            "name": "UNLIL（unlil.com）官方个人主页",
+            "description": "UNLIL 的官方个人主页，记录服务器与网络技术、VPS 实践、开源项目、中俄跨境与俄语内容。",
+            "inLanguage": ["zh-CN", "en"],
+            "isPartOf": { "@id": "https://unlil.com/#website" },
+            "mainEntity": { "@id": "https://unlil.com/#unlil" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://unlil.com/#unlil",
+            "name": "UNLIL",
+            "alternateName": "unlil",
+            "url": "https://unlil.com/",
+            "image": "https://unlil.com/images/icon/unlil-logo.jpg",
+            "description": "服务器与网络技术、VPS 实践、开源项目、中俄跨境与俄语内容创作者。",
+            "sameAs": [
+              "https://t.me/unlilrus",
+              "https://space.bilibili.com/10673056/",
+              "https://dev.unlil.com/"
+            ],
+            "email": "mailto:info@unlil.com"
+          }
+        ]
       }
     </script>
     <style>
@@ -90,11 +111,14 @@
       <main class="seo-fallback">
         <h1>UNLIL</h1>
         <p>Hello, I'm UNLIL.</p>
-        <p>服务器与网络技术、开源项目、中俄跨境与内容创作。</p>
+        <p>UNLIL（unlil.com）的官方个人主页。</p>
+        <p>记录服务器与网络技术、VPS 实践、开源项目、中俄跨境与俄语内容。</p>
         <nav aria-label="站点入口">
-          <a href="https://dev.unlil.com/">DEV</a>
+          <a href="https://dev.unlil.com/">UNLIL 开发者站点</a>
           ·
-          <a href="mailto:info@unlil.com">Email</a>
+          <a href="https://dev.unlil.com/vps-remaining-value/">VPS 剩余价值计算工具</a>
+          ·
+          <a href="mailto:info@unlil.com">联系 UNLIL</a>
         </nav>
       </main>
     </div>
@@ -102,7 +126,8 @@
     <noscript>
       <div style="padding: 2rem; text-align: center">
         <h1>UNLIL</h1>
-        <p>Hello, I'm UNLIL. 服务器与网络技术、开源项目、中俄跨境与内容创作。</p>
+        <p>Hello, I'm UNLIL. 这是 UNLIL（unlil.com）的官方个人主页。</p>
+        <p>记录服务器与网络技术、VPS 实践、开源项目、中俄跨境与俄语内容。</p>
         <p>此页面的互动功能需要 JavaScript。</p>
       </div>
     </noscript>

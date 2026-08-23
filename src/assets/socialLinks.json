@@ -1,14 +1,14 @@
 [
   {
-    "name": "Telegram",
+    "name": "UNLIL Telegram",
     "icon": "/images/icon/telegram.png",
     "tip": "Telegram: @unlilrus",
     "url": "https://t.me/unlilrus"
   },
   {
-    "name": "Email",
+    "name": "联系 UNLIL 的邮箱",
     "icon": "/images/icon/email.png",
-    "tip": "发送邮件",
+    "tip": "联系 UNLIL：info@unlil.com",
     "url": "mailto:info@unlil.com"
   }
 ]

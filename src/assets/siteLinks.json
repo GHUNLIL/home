@@ -1,12 +1,12 @@
 [
   {
     "icon": "LaptopCode",
-    "name": "DEV",
+    "name": "开发者站点",
     "link": "https://dev.unlil.com"
   },
   {
     "icon": "Cloud",
-    "name": "VPS 工具",
+    "name": "VPS 剩余价值工具",
     "link": "https://dev.unlil.com/vps-remaining-value/"
   }
 ]
